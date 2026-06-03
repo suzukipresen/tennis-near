@@ -1,0 +1,15 @@
+<h1><%= @event.title %></h1>
+
+<p>日時: <%= @event.event_date.strftime("%Y/%m/%d %H:%M") %></p>
+<p>場所: <%= @event.place %></p>
+<p>レベル: <%= @event.level %></p>
+<p>参加費: <%= @event.fee %>円</p>
+<p>募集人数: <%= @event.capacity %>人</p>
+<p>初心者歓迎: <%= @event.beginner_friendly ? "○" : "×" %></p>
+<p><%= @event.description %></p>
+
+<%= link_to "一覧に戻る", events_path %>
+
+<%= link_to "編集", edit_event_path(@event) %>
+
+<%= link_to "削除",event_path(@event),data: { turbo_method: :delete,turbo_confirm: "削除しますか？" } %>

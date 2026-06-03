@@ -1,0 +1,11 @@
+<%= link_to "募集を作成", new_event_path %>
+
+<h1>募集一覧</h1>
+
+<% @events.each do |event| %>
+  <p>
+    <%= link_to event.title, event_path(event) %>
+    <%= event.place %>
+    <%= event.event_date.strftime("%Y/%m/%d %H:%M") %>
+  </p>
+<% end %>

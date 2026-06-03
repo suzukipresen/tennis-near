@@ -1,0 +1,45 @@
+<%= form_with model: @event do |f| %>
+
+  <div>
+    <%= f.label :title, "タイトル" %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div>
+    <%= f.label :event_date, "開催日時" %>
+    <%= f.datetime_local_field :event_date %>
+  </div>
+
+  <div>
+    <%= f.label :place, "場所" %>
+    <%= f.text_field :place %>
+  </div>
+
+  <div>
+    <%= f.label :level, "レベル" %>
+    <%= f.number_field :level %>
+  </div>
+
+  <div>
+    <%= f.label :fee, "参加費" %>
+    <%= f.number_field :fee %>
+  </div>
+
+  <div>
+    <%= f.label :capacity, "募集人数" %>
+    <%= f.number_field :capacity %>
+  </div>
+
+  <div>
+    <%= f.label :description, "詳細" %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div>
+    <%= f.label :beginner_friendly, "初心者歓迎" %>
+    <%= f.check_box :beginner_friendly %>
+  </div>
+
+  <%= f.submit %>
+
+<% end %>
