@@ -10,6 +10,7 @@
 
 <%= link_to "一覧に戻る", events_path %>
 
-<%= link_to "編集", edit_event_path(@event) %>
-
-<%= link_to "削除",event_path(@event),data: { turbo_method: :delete,turbo_confirm: "削除しますか？" } %>
+<% if user_signed_in? && @event.user == current_user %>
+  <%= link_to "編集", edit_event_path(@event) %>
+  <%= link_to "削除",event_path(@event),data: { turbo_method: :delete,turbo_confirm: "削除しますか？" } %>
+<% end %>

@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :correct_user!, only: [:edit, :update, :destroy]
   def index
     @events = Event.all
   end
@@ -12,7 +14,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new(event_params)
+    @event = current_user.events.build(event_params)
 
     if @event.save
       redirect_to @event, notice: "募集を作成しました"
@@ -55,5 +57,13 @@ class EventsController < ApplicationController
       :capacity,
       :beginner_friendly
     )
+  end
+
+  private
+
+  def correct_user!
+    @event = Event.find(params[:id])
+
+    redirect_to events_path, alert: "権限がありません" unless @event.user == current_user
   end
 end
