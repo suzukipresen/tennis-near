@@ -26,6 +26,8 @@
       <p>未ログイン</p>
       <%= link_to "ログイン", new_user_session_path %>
       <%= link_to "新規登録", new_user_registration_path %>
+
+      <%= button_to "ゲストログイン",users_guest_sign_in_path,method: :post %>
     <% end %>
   </body>
 </html>

@@ -66,4 +66,5 @@ class EventsController < ApplicationController
 
     redirect_to events_path, alert: "権限がありません" unless @event.user == current_user
   end
+
 end
