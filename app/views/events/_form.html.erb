@@ -1,5 +1,17 @@
 <%= form_with model: @event do |f| %>
 
+  <% if @event.errors.any? %>
+    <div>
+      <h2><%= @event.errors.count %>件のエラーがあります</h2>
+
+      <ul>
+        <% @event.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>
+
   <div>
     <%= f.label :title, "タイトル" %>
     <%= f.text_field :title %>
