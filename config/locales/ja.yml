@@ -17,3 +17,6 @@ ja:
   errors:
     messages:
       blank: を入力してください
+      not_a_number: は数値で入力してください
+      greater_than_or_equal_to: "%{count}以上の値を入力してください"
+      less_than_or_equal_to: "%{count}以下の値を入力してください"
