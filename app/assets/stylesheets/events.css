@@ -1,0 +1,54 @@
+body {
+  background-color: #f7f8fa;
+  font-family: sans-serif;
+}
+
+/* グリッド */
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+/* カード */
+.event-card {
+  background: white;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* ヘッダー部分（初心者タグ＋人数） */
+.event-card-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+/* タグ共通 */
+.tag {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+/* 初心者タグ */
+.beginner {
+  background: #d7ff3f;
+}
+
+/* 人数 */
+.capacity {
+  font-weight: bold;
+  color: #0b7285;
+}
+
+/* タイトルリンク */
+.event-card h3 {
+  margin: 8px 0;
+}
+
+.event-card p {
+  margin: 6px 0;
+}

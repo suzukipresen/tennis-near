@@ -2,6 +2,7 @@ ja:
   activerecord:
     models:
       event: イベント
+      user: ユーザー
 
     attributes:
       event:
@@ -14,9 +15,15 @@ ja:
         capacity: 募集人数
         beginner_friendly: 初心者歓迎
 
+      user:
+        email: メールアドレス
+        password: パスワード
+
   errors:
     messages:
       blank: を入力してください
+      taken: はすでに使用されています
+      not_saved: "%{count}件のエラーにより保存できませんでした"
       not_a_number: は数値で入力してください
       greater_than_or_equal_to: "%{count}以上の値を入力してください"
       less_than_or_equal_to: "%{count}以下の値を入力してください"
