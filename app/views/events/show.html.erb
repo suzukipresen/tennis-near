@@ -1,16 +1,46 @@
-<h1><%= @event.title %></h1>
+<%= link_to "← 一覧に戻る", events_path %>
 
-<p>日時: <%= @event.event_date.strftime("%Y/%m/%d %H:%M") %></p>
-<p>場所: <%= @event.place %></p>
-<p>レベル: <%= @event.level %></p>
-<p>参加費: <%= @event.fee %>円</p>
-<p>募集人数: <%= @event.capacity %>人</p>
-<p>初心者歓迎: <%= @event.beginner_friendly ? "○" : "×" %></p>
-<p><%= @event.description %></p>
+<div class="event-detail-card">
 
-<%= link_to "一覧に戻る", events_path %>
+  <div class="event-card-header">
+    <% if @event.beginner_friendly? %>
+      <span class="tag beginner">初心者歓迎</span>
+    <% end %>
 
-<% if user_signed_in? && @event.user == current_user %>
-  <%= link_to "編集", edit_event_path(@event) %>
-  <%= link_to "削除",event_path(@event),data: { turbo_method: :delete,turbo_confirm: "削除しますか？" } %>
-<% end %>
+    <span class="capacity">
+      0/<%= @event.capacity %>名
+    </span>
+  </div>
+
+  <h1><%= @event.title %></h1>
+
+  <div class="event-info">
+    <p>📍 <%= @event.place %></p>
+    <p>🕒 <%= @event.event_date.strftime("%Y/%m/%d %H:%M") %></p>
+    <p>🎾 レベル <%= @event.level %></p>
+    <p>💰 <%= @event.fee %>円</p>
+  </div>
+
+  <hr>
+
+  <h2>主催者</h2>
+  <p><%= @event.user.email %></p>
+
+  <hr>
+
+  <h2>募集詳細</h2>
+  <p><%= simple_format(@event.description) %></p>
+
+  <button class="join-button">
+    参加する
+  </button>
+
+  <% if user_signed_in? && @event.user == current_user %>
+    <div class="owner-actions">
+      <%= link_to "編集", edit_event_path(@event) %>
+
+      <%= link_to "削除",event_path(@event),data: { turbo_method: :delete,turbo_confirm: "削除しますか？" } %>
+    </div>
+  <% end %>
+
+</div>
