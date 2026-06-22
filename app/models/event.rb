@@ -1,6 +1,12 @@
 class Event < ApplicationRecord
   belongs_to :user
 
+  enum :level, {beginner: 1,intermediate: 2,advanced: 3}
+
+  def level_i18n
+    I18n.t("enums.event.level.#{level}")
+  end
+
   validates :title, presence: true
   validates :event_date, presence: true
   validates :place, presence: true
@@ -8,7 +14,7 @@ class Event < ApplicationRecord
 
   validates :capacity,presence: true,numericality: { greater_than_or_equal_to: 1 }
   validates :fee,presence: true,numericality: { greater_than_or_equal_to: 0 }
-  validates :level,presence: true,numericality: { greater_than_or_equal_to: 1,less_than_or_equal_to: 3}
+  validates :level,presence: true
   validate :event_date_cannot_be_in_the_past
 
   private

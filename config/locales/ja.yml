@@ -18,6 +18,13 @@ ja:
       user:
         email: メールアドレス
         password: パスワード
+ 
+  enums:
+    event:
+      level:
+        beginner: 初級
+        intermediate: 中級
+        advanced: 上級
 
   errors:
     messages:

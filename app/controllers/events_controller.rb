@@ -2,7 +2,26 @@ class EventsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :correct_user!, only: [:edit, :update, :destroy]
   def index
+    p params
     @events = Event.all
+
+    # 日付
+    if params[:date].present?
+      date = Date.parse(params[:date])
+      @events = @events.where(event_date: date.beginning_of_day..date.end_of_day)
+    end
+    # level
+    if params[:level].present?
+      @events = @events.where(level: params[:level])
+    end
+    # 初心者歓迎
+    if params[:beginner_friendly] == "1"
+      @events = @events.where(beginner_friendly: true)
+    end
+    # 場所
+    if params[:place].present?
+      @events = @events.where("place LIKE ?", "%#{params[:place]}%")
+    end
   end
 
   def show

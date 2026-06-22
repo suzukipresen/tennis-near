@@ -1,4 +1,46 @@
-<h1>募集中のイベント（<%= @events.count %>件）</h1>
+<div class="search-box">
+  <%= form_with url: events_path, method: :get, local: true do %>
+
+    <div class="search-row">
+
+      <div class="search-item">
+        <label>日付</label>
+        <%= date_field_tag :date, params[:date] %>
+      </div>
+
+      <div class="search-item">
+        <label>レベル</label>
+        <%= select_tag :level,
+            options_for_select(
+              [["指定なし", ""], ["初心者", 1], ["中級", 2], ["上級", 3]],params[:level]) %>
+      </div>
+
+      <div class="search-item">
+        <label>場所</label>
+        <%= text_field_tag :place, params[:place], placeholder: "場所" %>
+      </div>
+
+      <div class="search-checkbox">
+        <%= check_box_tag :beginner_friendly,"1",params[:beginner_friendly] == "1" %>
+        <%= label_tag :beginner_friendly, "初心者歓迎" %>
+      </div>
+
+      <div>
+        <%= submit_tag "検索", class: "search-button" %>
+      </div>
+
+      <div>
+       <%= link_to "クリア",events_path,class: "clear-button" %>
+      </div>
+
+    </div>
+
+  <% end %>
+</div>
+
+<h1 class="events-title">
+募集中のイベント（<%= @events.count %>件）
+</h1>
 
 <div class="events-grid">
   <% @events.each do |event| %>
@@ -20,7 +62,7 @@
       <p>
         🕒  <%= event.event_date.strftime("%-m/%-d %H:%M") %>
       </p>
-      <p>🎾 レベル<%= event.level %></p>
+      <p>🎾 レベル <%= event.level_i18n %></p>
       <hr>
       <p>
         主催： <%= event.user.email %>

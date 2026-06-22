@@ -3,6 +3,11 @@ body {
   font-family: sans-serif;
 }
 
+.events-title {
+  font-size: 28px;
+  margin-bottom: 24px;
+}
+
 /* グリッド */
 .events-grid {
   display: grid;
@@ -146,4 +151,65 @@ body {
   padding: 16px;
   border-radius: 12px;
   margin-bottom: 24px;
+}
+
+.search-box {
+  background: white;
+  padding: 24px;
+  border-radius: 20px;
+  margin-bottom: 40px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.search-row {
+  display: flex;
+  gap: 16px;
+  align-items: end;
+  flex-wrap: wrap;
+}
+
+.search-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-item label {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 6px;
+}
+
+.search-item input,
+.search-item select {
+  height: 42px;
+  padding: 0 12px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+}
+
+.search-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.search-button {
+  background: #111;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 26px;
+  cursor: pointer;
+}
+
+.clear-button {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 12px;
+  text-decoration: none;
+  border: 1px solid #ddd;
+  color: #333;
+  background: white;
+  font-size: 14px;
 }
