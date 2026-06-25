@@ -3,6 +3,9 @@ class Event < ApplicationRecord
 
   enum :level, {beginner: 1,intermediate: 2,advanced: 3}
 
+  geocoded_by :place
+  after_validation :geocode, if: :will_save_change_to_place?
+
   def level_i18n
     I18n.t("enums.event.level.#{level}")
   end
