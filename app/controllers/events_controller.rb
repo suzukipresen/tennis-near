@@ -44,7 +44,7 @@ end
     @event = Event.find(params[:id])
 
     @participants_count = @event.participants.count
-    @participated = @event.participants.exists?(id: current_user.id)
+    @participated = current_user && @event.participants.exists?(id: current_user.id)
   end
 
   def new
