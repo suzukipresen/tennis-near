@@ -16,7 +16,7 @@
 
   <div class="event-info">
     <p>📍 <%= @event.place %></p>
-    <div id="map">地図を表示予定</div>
+    <div id="map" style="height: 400px; border-radius: 16px;"></div>
     <p>🕒 <%= @event.event_date.strftime("%Y/%m/%d %H:%M") %></p>
     <p>🎾 レベル <%= @event.level %></p>
     <p>💰 <%= @event.fee %>円</p>
@@ -43,5 +43,28 @@
       <%= link_to "削除",event_path(@event),data: { turbo_method: :delete,turbo_confirm: "削除しますか？" } %>
     </div>
   <% end %>
+
+  <script>
+    function initMap() {
+      const position = {
+        lat: <%= @event.latitude %>,
+        lng: <%= @event.longitude %>
+      };
+
+      const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 15,
+        center: position,
+      });
+
+      new google.maps.Marker({
+        position: position,
+        map: map,
+      });
+    }
+  </script>
+
+<script async
+  src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.google[:maps_api_key] %>&callback=initMap">
+</script>
 
 </div>

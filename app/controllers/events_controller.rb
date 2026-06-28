@@ -22,6 +22,10 @@ class EventsController < ApplicationController
     if params[:place].present?
       @events = @events.where("place LIKE ?", "%#{params[:place]}%")
     end
+
+    @markers = @events.map do |event|
+      {lat: event.latitude,lng: event.longitude,title: event.title}
+end
   end
 
   def show

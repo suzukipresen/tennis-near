@@ -38,6 +38,8 @@
   <% end %>
 </div>
 
+<div id="map" class="events-map"></div>
+
 <h1 class="events-title">
 募集中のイベント（<%= @events.count %>件）
 </h1>
@@ -71,3 +73,34 @@
   <% end %>
 
 </div>
+
+<script>
+  const markers = <%= raw @markers.to_json %>;
+
+  function initMap() {
+    const map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 10,
+      center: {
+        lat: markers[0].lat,
+        lng: markers[0].lng
+      }
+    });
+
+    markers.forEach((marker) => {
+      new google.maps.Marker({
+        position: {
+          lat: marker.lat,
+          lng: marker.lng
+        },
+        map: map,
+        title: marker.title
+      });
+    });
+  }
+
+  window.initMap = initMap;
+</script>
+
+<script async
+  src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.google[:maps_api_key] %>&callback=initMap">
+</script>
