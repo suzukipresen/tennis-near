@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-  before_action :correct_user!, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, only: [ :new, :create, :edit, :update, :destroy ]
+  before_action :correct_user!, only: [ :edit, :update, :destroy ]
   def index
     p params
     @events = Event.all
@@ -29,14 +29,14 @@ class EventsController < ApplicationController
       params[:distance].present?
 
       @events = @events.near(
-        [params[:latitude], params[:longitude]],
+        [ params[:latitude], params[:longitude] ],
         params[:distance].to_f,
         units: :km
       ).to_a
     end
 
     @markers = @events.map do |event|
-      {lat: event.latitude,lng: event.longitude,title: event.title}
+      { lat: event.latitude, lng: event.longitude, title: event.title }
 end
   end
 
@@ -104,5 +104,4 @@ end
 
     redirect_to events_path, alert: "権限がありません" unless @event.user == current_user
   end
-
 end
