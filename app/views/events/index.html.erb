@@ -20,14 +20,26 @@
         <%= text_field_tag :place, params[:place], placeholder: "場所" %>
       </div>
 
+      <div class="search-item">
+        <label>距離</label>
+
+        <%= select_tag :distance,
+            options_for_select([["指定なし", ""],["3km", 3],["5km", 5],["10km", 10]],params[:distance]) %>
+      </div>
+
       <div class="search-checkbox">
         <%= check_box_tag :beginner_friendly,"1",params[:beginner_friendly] == "1" %>
         <%= label_tag :beginner_friendly, "初心者歓迎" %>
       </div>
 
+      <%= hidden_field_tag :latitude, params[:latitude], id: "latitude" %>
+      <%= hidden_field_tag :longitude, params[:longitude], id: "longitude" %>
+
       <div>
         <%= submit_tag "検索", class: "search-button" %>
       </div>
+
+      <button type="button" id="current-location-button" class="location-button">現在地を取得</button>
 
       <div>
        <%= link_to "クリア",events_path,class: "clear-button" %>
@@ -41,7 +53,7 @@
 <div id="map" class="events-map"></div>
 
 <h1 class="events-title">
-募集中のイベント（<%= @events.count %>件）
+募集中のイベント（<%= @events.size %>件）
 </h1>
 
 <div class="events-grid">
@@ -75,7 +87,7 @@
 </div>
 
 <script>
-  const markers = <%= raw @markers.to_json %>;
+  window.markers = <%= raw @markers.to_json %>;
 
   function initMap() {
     const map = new google.maps.Map(document.getElementById("map"), {
@@ -99,6 +111,42 @@
   }
 
   window.initMap = initMap;
+
+  document
+    .getElementById("current-location-button")
+    .addEventListener("click", () => {
+
+      navigator.geolocation.getCurrentPosition((position) => {
+
+        document.getElementById("latitude").value =
+          position.coords.latitude;
+
+        document.getElementById("longitude").value =
+          position.coords.longitude;
+
+        alert("現在地を取得しました！");
+
+      });
+     });
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.querySelector(".search-box form");
+
+    form.addEventListener("submit", (e) => {
+      const lat = document.getElementById("latitude").value;
+      const lng = document.getElementById("longitude").value;
+
+      // 距離検索してるのに現在地ない場合だけ止める
+      const distance = document.querySelector("[name='distance']").value;
+
+      if (distance && (!lat || !lng)) {
+        alert("先に現在地を取得してください");
+        e.preventDefault();
+      }
+    });
+  });
 </script>
 
 <script async

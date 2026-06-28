@@ -23,6 +23,18 @@ class EventsController < ApplicationController
       @events = @events.where("place LIKE ?", "%#{params[:place]}%")
     end
 
+    # 距離
+    if params[:latitude].present? &&
+      params[:longitude].present? &&
+      params[:distance].present?
+
+      @events = @events.near(
+        [params[:latitude], params[:longitude]],
+        params[:distance].to_f,
+        units: :km
+      ).to_a
+    end
+
     @markers = @events.map do |event|
       {lat: event.latitude,lng: event.longitude,title: event.title}
 end
