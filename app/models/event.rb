@@ -1,6 +1,9 @@
 class Event < ApplicationRecord
   belongs_to :user
 
+  has_many :participations, dependent: :destroy
+  has_many :participants, through: :participations, source: :user
+
   enum :level, {beginner: 1,intermediate: 2,advanced: 3}
 
   geocoded_by :place

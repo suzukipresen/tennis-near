@@ -64,7 +64,7 @@
           <span class="tag beginner">初心者歓迎</span>
         <% end %>
         <span class="capacity">
-          0/<%= event.capacity %>名
+          <%= event.participants.count %>/<%= event.capacity %>名
         </span>
       </div>
 

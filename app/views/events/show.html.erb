@@ -8,7 +8,7 @@
     <% end %>
 
     <span class="capacity">
-      0/<%= @event.capacity %>名
+      <%= @event.participants.count %>/<%= @event.capacity %>名
     </span>
   </div>
 
@@ -32,9 +32,13 @@
   <h2>募集詳細</h2>
   <p><%= simple_format(@event.description) %></p>
 
-  <button class="join-button">
-    参加する
-  </button>
+  <% if @participants_count >= @event.capacity %>
+    <button class="join-button" disabled>満員です</button>
+  <% elsif @participated %>
+    <button class="join-button" disabled>参加済み</button>
+  <% else %>
+    <%= button_to "参加する",event_join_path(@event),method: :post,class: "join-button" %>
+  <% end %>
 
   <% if user_signed_in? && @event.user == current_user %>
     <div class="owner-actions">

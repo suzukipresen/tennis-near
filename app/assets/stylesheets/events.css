@@ -87,6 +87,11 @@ body {
   cursor: pointer;
 }
 
+.join-button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
 .owner-actions {
   margin-top: 24px;
   display: flex;
