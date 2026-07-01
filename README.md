@@ -5,6 +5,7 @@
 近くのテニスイベントを地図と距離から探し、1人でも参加できることを目的としています。
 
 2.画面イメージ
+<img width="1252" height="3838" alt="image" src="https://github.com/user-attachments/assets/15181883-1de6-4cfa-a9f2-d0ea39ecd22d" />
 
 3.アプリURL
 https://tennis-near.onrender.com
@@ -23,6 +24,7 @@ https://tennis-near.onrender.com
   現在地からの距離検索機能
 
 7.ER図
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/c3a4333e-112f-45e8-a0b6-89c964330fcc" />
 
 8.今後の展望
 
