@@ -1,24 +1,45 @@
-# README
+# Tennis Near
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+1.アプリ概要
+テニスの参加者募集・検索ができるWebアプリです。
+近くのテニスイベントを地図と距離から探し、1人でも参加できることを目的としています。
 
-Things you may want to cover:
+2.画面イメージ
 
-* Ruby version
+3.アプリURL
+https://tennis-near.onrender.com
 
-* System dependencies
+4.主な機能
+  ・イベント一覧から検索
+  ・気になるイベントを選択
+  ・「参加する」ボタンで参加
+  ・現在地検索で距離フィルタも可能
 
-* Configuration
+5.開発背景
+一人でテニスに参加する際、サークルでは内輪感が強く、初参加のハードルが高いと感じました。そこで、単発イベント形式で気軽に参加者を募集・検索でき、現在地から近いイベントを探せるサービスを作成しました。
 
-* Database creation
+6.工夫した点
+  Google Maps APIを使った位置情報表示
+  現在地からの距離検索機能
 
-* Database initialization
+7.ER図
 
-* How to run the test suite
+8.今後の展望
 
-* Services (job queues, cache servers, search engines, etc.)
+直近の修正予定
 
-* Deployment instructions
+  ・レスポンシブ対応
+  ・UI修正
 
-* ...
+短期的な目標
+
+ ・AIによる募集文自動生成機能
+ ・イベント参加キャンセル機能
+ ・イベントお気に入り機能
+
+中長期的な目標
+
+ ・イベントごとのチャット機能
+ ・通知機能
+ ・レビュー・評価機能
+ ・初参加同士で参加しやすくなるマッチング機能
