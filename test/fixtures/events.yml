@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  event_date: 2026-05-31 17:54:23
+  place: MyString
+  level: 1
+  fee: 1
+  description: MyText
+  capacity: 1
+  beginner_friendly: false
+
+two:
+  title: MyString
+  event_date: 2026-05-31 17:54:23
+  place: MyString
+  level: 1
+  fee: 1
+  description: MyText
+  capacity: 1
+  beginner_friendly: false

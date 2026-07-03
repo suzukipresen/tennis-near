@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  devise_for :users
+  post "users/guest_sign_in", to: "users/sessions#guest_sign_in"
+  root "events#index"
+  resources :events do
+    post "join", to: "participations#create"
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

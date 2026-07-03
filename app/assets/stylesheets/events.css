@@ -1,0 +1,240 @@
+body {
+  background-color: #f7f8fa;
+  font-family: sans-serif;
+}
+
+.events-title {
+  font-size: 28px;
+  margin-bottom: 24px;
+}
+
+/* グリッド */
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+/* カード */
+.event-card {
+  background: white;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* ヘッダー部分（初心者タグ＋人数） */
+.event-card-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+/* タグ共通 */
+.tag {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+/* 初心者タグ */
+.beginner {
+  background: #d7ff3f;
+}
+
+/* 人数 */
+.capacity {
+  font-weight: bold;
+  color: #0b7285;
+}
+
+/* タイトルリンク */
+.event-card h3 {
+  margin: 8px 0;
+}
+
+.event-card p {
+  margin: 6px 0;
+}
+
+.event-detail-card {
+  max-width: 700px;
+  margin: 40px auto;
+  background: white;
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.event-info {
+  margin: 24px 0;
+}
+
+.event-info p {
+  margin: 12px 0;
+}
+
+.join-button {
+  width: 100%;
+  margin-top: 24px;
+  padding: 16px;
+  border: none;
+  border-radius: 12px;
+  background: #d7ff3f;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.join-button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.owner-actions {
+  margin-top: 24px;
+  display: flex;
+  gap: 16px;
+}
+
+.event-form-card {
+  max-width: 700px;
+  margin: 40px auto;
+  background: white;
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.event-form-card h1 {
+  margin-bottom: 24px;
+}
+
+.field {
+  margin-bottom: 20px;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.field textarea {
+  min-height: 120px;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 12px;
+  background: #d7ff3f;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.field {
+  margin-bottom: 20px;
+}
+
+.error-box {
+  background: #fff5f5;
+  border: 1px solid #ffb3b3;
+  padding: 16px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+}
+
+.search-box {
+  background: white;
+  padding: 24px;
+  border-radius: 20px;
+  margin-bottom: 40px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.search-row {
+  display: flex;
+  gap: 16px;
+  align-items: end;
+  flex-wrap: wrap;
+}
+
+.search-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-item label {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 6px;
+}
+
+.search-item input,
+.search-item select {
+  height: 42px;
+  padding: 0 12px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+}
+
+.search-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.search-button {
+  background: #111;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 26px;
+  cursor: pointer;
+}
+
+.location-button {
+  padding: 21px 26px;
+  border: 1px solid #ccc;
+  background: white;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clear-button {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 12px;
+  text-decoration: none;
+  border: 1px solid #ddd;
+  color: #333;
+  background: white;
+  font-size: 14px;
+}
+
+.events-map{
+  width: 100%;
+  height: 400px;
+  margin: 30px 0;
+  border-radius: 16px;
+}
